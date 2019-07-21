@@ -1,5 +1,5 @@
 class PinsController < ApplicationController
-  before_action :find_pin, only: [:show, :edit, :update, :destroy]
+  before_action :find_pin, only: [:show, :edit, :update, :destroy, :upvote]
 
   def new
     @pin = current_user.pins.build
@@ -36,6 +36,11 @@ class PinsController < ApplicationController
     if @pin.destroy
       redirect_to root_path, notice: "Successfully deleted one Pin!"
     end
+  end
+
+  def upvote 
+    @pin.upvote_by current_user
+    redirect_to @pin
   end
 
   private

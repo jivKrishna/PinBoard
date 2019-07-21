@@ -1,4 +1,5 @@
 class Pin < ApplicationRecord
+  acts_as_votable
   belongs_to :user
   validates :title, :description, presence: true
 
