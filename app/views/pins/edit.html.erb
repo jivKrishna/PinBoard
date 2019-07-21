@@ -1,5 +1,16 @@
-<div class="col-md-6 col-md-offset-3">
-  <h1>Edit Pin</h1>
-  <%= render "form" %>
-  <%= link_to "Cancel", @pin, class: "btn" %>
+<div id="pin_show" class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1>Edit Pin</h1>
+      </div>
+
+      <div class="panel-body pin_image">
+        <%= image_tag @pin.image.url(:medium) %>
+        <p class="text-warning">Current image!</p>
+        <%= render "form" %>
+        <%= link_to "Cancel", @pin, class: "btn" %>
+      </div>
+    </div>
+  </div>
 </div>
