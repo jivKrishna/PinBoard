@@ -1,6 +1,16 @@
+<%= image_tag @pin.image.url(:medium) %>
 <h2><%= @pin.title %></h2>
 <p><%= @pin.description %></p>
+<small>Submitted by : 
+  <span class="text-warning"><%= @pin.user.email %> </span>
+  <span class="text-info"> <%= @pin.created_at.strftime("%dth %B %Y") %></span>
+</small>
 
-<%= link_to "Back", root_path, class: "btn btn-default" %>
-<%= link_to "Edit", edit_pin_path, class: "btn btn-default" %>
-<%= link_to "Delete", pin_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default" %>
+<div>
+  <%= link_to "Back", root_path, class: "btn" %>
+
+  <% if user_signed_in? %>
+  <%= link_to "Edit", edit_pin_path, class: "btn text-success" %>
+  <%= link_to "Delete", pin_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn text-danger" %>
+  <% end %>
+</div>
