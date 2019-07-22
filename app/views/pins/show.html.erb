@@ -1,11 +1,11 @@
 <div id="pin_show" class="row">
   <div class="col-md-6 col-md-offset-3">
     <div class="panel panel-default">
-      <div class="panel-heading pin_image">
+      <div class="panel-heading pin_image text-center">
         <%= image_tag @pin.image.url(:medium) %>
       </div>
       <div class="panel-body">
-        <h2><%= @pin.title %></h2>
+        <h2 class="text-center"><%= @pin.title %></h2>
         <p class="description"><%= @pin.description %></p>
       </div>
       <div class="panel-footer">
@@ -13,7 +13,7 @@
           <div class="col-md-6">
             <small class="user"> Submitted by : <span class="text-success"><%= @pin.user.email %> </span></small>
             <br/>
-            <small class="text-danger"><%= @pin.created_at.strftime("%dth %B %Y") %></small>
+            <small class="text-danger"><%= @pin.created_at.strftime("%H:%M UTC, %dth %B %Y") %></small>
           </div>
             
           <div class="col-md-6">
